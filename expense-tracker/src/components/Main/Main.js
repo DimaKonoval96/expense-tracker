@@ -18,13 +18,20 @@ const Main = () =>{
     setEntries([...filteredEntries]);
   }
 
+  const getFinData = () =>{
+    const finData = {};
+    finData.income = entries.reduce((acc, entry)=> entry.money > 0 ? acc+entry.money : acc, 0);
+    const expenses = entries.reduce((acc, entry)=> entry.money < 0 ? acc+entry.money : acc, 0);
+    finData.expenses = Math.abs(expenses);
+    return finData;
+  }
   const getBalance = () => {
     return entries.reduce((sum, entry) => sum + entry.money, 0);
   }
   return(
     <div className='main container'>
       <h1>Expense Tracker</h1>
-      <IncomeExpenses />
+      <IncomeExpenses getFinData={getFinData}/>
       <Balance getBalance={getBalance}/>
       <EntryList entries={entries} deleteEntry={deleteEntry}/>
       <AddEntry addEntry={addEntry}/>
