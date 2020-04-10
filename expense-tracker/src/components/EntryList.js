@@ -1,11 +1,15 @@
 import React from 'react';
 
-const EntryList = () => {
+const EntryList = ({entries, deleteEntry}) => {
+
   return(
     <ul className='entry-list'>
       <h3>Entries:</h3>
-      <li class='entry entry-expense'>Book <span>-50$</span></li>
-      <li class='entry entry-income'>Salary <span>1000$</span></li>
+      {
+        entries.map(entry => {
+         return <li className={`entry ${entry.money > 0 ? 'entry-income' : 'entry-expense'}`} key={entry.id}><span className='delete-entry' onClick={(id) => deleteEntry(entry.id)}>-</span>{entry.name}<span>{entry.money}$</span></li>
+        })
+      }
     </ul>
   );
 }

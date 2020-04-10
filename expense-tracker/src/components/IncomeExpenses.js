@@ -2,9 +2,9 @@ import React from 'react';
 
 const IncomeExpenses = () => {
   return(
-    <div class='income-expenses '>
-      <div class='income'>Income: <span>0</span>$</div>
-      <div class='expenses'>Expenses: <span>0</span>$ </div>
+    <div className='income-expenses '>
+      <div className='income'>Income: <span>0</span>$</div>
+      <div className='expenses'>Expenses: <span>0</span>$ </div>
     </div>
   );
 }
