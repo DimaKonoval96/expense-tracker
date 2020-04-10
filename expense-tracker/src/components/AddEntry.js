@@ -7,7 +7,11 @@ const EntryList = ({addEntry}) => {
 
   const formHandler = (e) =>{
     e.preventDefault();
-    addEntry({name: inputName, money: inputMoney});
+    if(inputName && inputMoney){
+      addEntry({name: inputName, money: Number(inputMoney)});
+      setInputName('');
+      setInputMoney(0);
+    }
   }
   return(
     <form className='add-entry'>

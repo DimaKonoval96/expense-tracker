@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Balance = () => {
+const Balance = ({getBalance}) => {
   return(
     <div className='balance'>
-      <div>Balance: <span>0</span>$</div>
+      <div>Balance: <span>{getBalance()}</span>$</div>
     </div>
   );
 }

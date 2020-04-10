@@ -17,11 +17,15 @@ const Main = () =>{
     const filteredEntries = entries.filter(entry => entry.id !== id);
     setEntries([...filteredEntries]);
   }
+
+  const getBalance = () => {
+    return entries.reduce((sum, entry) => sum + entry.money, 0);
+  }
   return(
     <div className='main container'>
       <h1>Expense Tracker</h1>
       <IncomeExpenses />
-      <Balance />
+      <Balance getBalance={getBalance}/>
       <EntryList entries={entries} deleteEntry={deleteEntry}/>
       <AddEntry addEntry={addEntry}/>
     </div>
